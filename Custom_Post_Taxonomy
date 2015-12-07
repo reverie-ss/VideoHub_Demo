@@ -1,0 +1,34 @@
+//Custom Taxonomy for the video category, it contains series, eventss and movies
+
+add_action( 'init', 'cptui_register_my_taxes' );
+function cptui_register_my_taxes() {
+
+	$labels = array(
+		"name" => "actors",
+		"label" => "actors",
+		"menu_name" => "Actors",
+		"all_items" => "All Actors",
+		"edit_item" => "Edit Actor",
+		"view_item" => "View Actor",
+		"update_item" => "Update Actor Name",
+		"add_new_item" => "dd New Actor",
+		"new_item_name" => "New Actor Name",
+		"parent_item" => "Parent Actor",
+		"parent_item_colon" => "Parent Actor:",
+		"search_items" => "Search Actors",
+		"popular_items" => "Popular Actors",
+		);
+
+	$args = array(
+		"labels" => $labels,
+		"hierarchical" => true,
+		"label" => "actors",
+		"show_ui" => true,
+		"query_var" => true,
+		"rewrite" => array( 'slug' => 'actor', 'with_front' => true ),
+		"show_admin_column" => false,
+	);
+	register_taxonomy( "actor", array( "videos" ), $args );
+
+// End cptui_register_my_taxes
+}
