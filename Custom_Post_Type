@@ -1,0 +1,43 @@
+//Custom Post type, to create a pst type of videos
+
+add_action( 'init', 'cptui_register_my_cpts' );
+function cptui_register_my_cpts() {
+	$labels = array(
+		"name" => "Videos",
+		"singular_name" => "Video",
+		"menu_name" => "My Videos",
+		"all_items" => "All Videos",
+		"add_new" => "Add Video",
+		"add_new_item" => "Add New Video",
+		"edit" => "Edit",
+		"edit_item" => "Edit Video",
+		"new_item" => "New Video",
+		"view" => "View",
+		"view_item" => "View Video",
+		"search_items" => "Search Video",
+		"not_found" => "No Videos Found",
+		"not_found_in_trash" => "No Videos Found in Trash",
+		"parent" => "Parent Video",
+		);
+
+	$args = array(
+		"labels" => $labels,
+		"description" => "It contains all the videos of the form Series, Movies, Events.",
+		"public" => true,
+		"show_ui" => true,
+		"has_archive" => true,
+		"show_in_menu" => true,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => array( "slug" => "videos", "with_front" => true ),
+		"query_var" => true,
+				
+		"supports" => array( "title", "editor", "excerpt", "trackbacks", "custom-fields", "comments", "revisions", "thumbnail", "author", "page-attributes", "post-formats" ),		
+		"taxonomies" => array( "category", "post_tag", "video-category" )
+	);
+	register_post_type( "videos", $args );
+
+// End of cptui_register_my_cpts()
+}
