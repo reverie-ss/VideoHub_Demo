@@ -1,2 +1,2 @@
 # VideoHub_Demo
-An assignment given by GDG BBSR.
+An plugin for Wordpress to see videos (GDG BBSR)
